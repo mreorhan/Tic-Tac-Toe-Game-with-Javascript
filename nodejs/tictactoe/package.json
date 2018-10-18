@@ -1,0 +1,9 @@
+{
+    "name": "tictactoe-server",
+    "version": "1.0.0",
+    "description": "XOX Oyunu @emreorhan",
+    "dependencies": {
+        "nodemon": "^1.18.4",
+        "socket.io": "latest"
+    }
+}

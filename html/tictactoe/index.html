@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>XOX Oyunu</title>
+      <link rel="stylesheet" type="text/css" href="https://semantic-ui.com/dist/semantic.css">
+      <link href="css/style.css" rel="stylesheet">
+   </head>
+   <body onLoad="init();">
+      <div class="ui two column stackable grid container">
+         <div class="column">
+            <div class="ui segment" style="text-align: center;">
+               <canvas id="canvasOyunAlani"></canvas>
+            </div>
+         </div>
+         <div class="column">
+            <div class="ui segment">
+               <div class="panel panel-default">
+                  <div class="panel-body">
+                     <div id="loadingTxt" class="text-center">
+					 
+					 <div class="ui list">
+					  <div class="item">
+						<i class="icon">
+					 <div class="ui active inline loader" style="background:transparent"></div>
+					 </i>
+						<div class="content">
+						  <a class="header">Diğer Oyuncu Aranıyor</a>
+						  <div class="description">Lütfen Bekleyin...</div>
+					 </div>
+					 </div>
+					 </div>
+					 
+					 </div>
+                     <div class="input-group">
+                        <div class="ui input">
+                           <input type="text" placeholder="Adınızı yazın" id="nameTxt">
+                        </div>
+                        <span class="input-group-btn">
+                        <button class="ui button primary" type="button" id="joinBtn">Oyna</button>
+                        </span>
+                     </div>
+                     <ul>
+                        <div class="ui relaxed divided list">
+                           <div class="item">
+                              <i class="large user middle aligned icon"></i>
+                              <div class="content">
+                                 <a id="playerX" class="header">X bekleniyor...</a>
+                              </div>
+                           </div>
+                           <div class="item">
+                              <i class="large user middle aligned icon"></i>
+                              <div class="content">
+                                 <a id="playerO" class="header">Y Bekleniyor...</a>
+                              </div>
+                           </div>
+                        </div>
+                        <br/>
+                        <div class="ui indicating progress" data-value="1" data-total="10" id="example2">
+                           <div class="bar">
+                              <div class="progress"></div>
+                           </div>
+                           <div class="label">Geçen Süre</div>
+                        </div>
+                        <br/>
+                     </ul>
+                     <button class="ui danger button" type="button" id="leaveBtn">Oyundan Çık</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+		 <div class="ui modal">
+		  <i class="close icon"></i>
+		  <div class="header">
+			Oyun Bitti
+		  </div>
+		  <div class="image content">
+			<div class="description"></div>
+		  </div>
+		  <div class="actions">
+			<div class="ui button">Yeni Oyun</div>
+		  </div>
+		</div>
+      </div>
+      <script src="js/vendor/jquery.min.js"></script>
+	  <!-- Oyun Alanı(Canvas) Kütüphanesi -->
+      <script src="js/vendor/easeljs-0.7.1.min.js"></script>
+	  <!-- Node.JS ile Socket Bağlantısı -->
+      <script src="http://localhost:8181/socket.io/socket.io.js"></script>
+      <script src="js/ui.js"></script>
+      <script src="https://semantic-ui.com/dist/semantic.min.js"></script>
+   </body>
+</html>

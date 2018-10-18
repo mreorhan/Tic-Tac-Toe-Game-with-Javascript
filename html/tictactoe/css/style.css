@@ -1,0 +1,19 @@
+body {
+    background-color: #fdfdfd;
+    margin: 15px;
+}
+ul {
+    margin:0;
+	padding:0
+}
+
+#loadingTxt, #leaveBtn, ul {
+    display: none;
+}
+.text-center{
+	text-align:center
+}
+.current:after {
+    content: 'Oynama Sırası';
+    padding-left: 10px;
+}
