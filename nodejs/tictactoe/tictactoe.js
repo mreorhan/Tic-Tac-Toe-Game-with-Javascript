@@ -1,9 +1,9 @@
-let http = require('http').Server(function (req, res) {
+let http = require('http').Server(function (res) {
     res.end();
 });
 
 let io = require('socket.io')(http);
-let Table = require('./_table.js');
+let Table = require('./grid.js');
 
 let waitingQueue = [];
 let tableCount = 1;

@@ -141,21 +141,26 @@ socket.on('opponent disconnected', function (msg) {
 });
 
 var timeleft=0;
-downloadTimer =  function (msg){
-	setInterval(()=>{
-	  $('#example2').progress('increment');
-	  if(timeleft >= 10)
-		clearInterval(downloadTimer);
-
-	  else if(timeleft==9)
-		endGame(msg.value);
-	timeleft++;
-	},1000);
+let xTime=1000;
+ function downloadTimer(msg){
+    console.log(msg)
+    console.log(timeleft)
+    console.log($('#example2').progress('increment'))
+	var xSet = setInterval(()=>{
+    console.log("timeleft kalan"+timeleft)
+      $('#example2').progress('increment');
+      if(timeleft>=10){
+        clearInterval(xSet);
+        $('#example2').progress('reset');
+        timeleft=0;
+        result = msg.value === "o" ? "x" : "o";
+        endGame(result);
+    }
+    timeleft++;
+    },xTime);
 }
 socket.on('make a move', function (msg) {
-	
-	
-	
+    downloadTimer(msg);
 	$('#example2')
   .progress({
     duration : 1000,
@@ -171,7 +176,7 @@ socket.on('make a move', function (msg) {
         }, 500);
 		
         return;
-    }downloadTimer(msg);
+    }
     currentTurn = msg.nextTurn;
     currentTurnStyle();
     canMove = true;
@@ -228,11 +233,12 @@ $(".description").text(value === oyuncuTipi ? " KAZANDIN!" : "KAYBETTİN!");
 		stage.clear();
 		stage.removeAllChildren();
 		sidebarInit();
-		init();
+        init();
+        timeleft=0;
 };
 
 var makeAMove = function (x, y) {
-	
+	timeleft = 0;
     socket.emit('make a move', {x: x, y: y}, function (msg) {
         if (!msg.ok) {
             alert('Hata oluştu');
@@ -245,6 +251,6 @@ var currentTurnStyle = function () {
     $("#playerX").toggleClass("current");
     $("#playerO").toggleClass("current");
 	timeleft = 0;
-	$('#example2').progress('reset');
-	downloadTimer=null;
+    $('#example2').progress('reset');
+	
 };

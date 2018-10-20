@@ -17,3 +17,29 @@ ul {
     content: 'Oynama Sırası';
     padding-left: 10px;
 }
+
+
+#board {
+    width: 304px;
+    height: 304px;
+    margin: 0 auto;
+    background: #eeeeee;
+    border-left: 1px solid #dbdbdb;
+    border-top: 1px solid #dbdbdb;
+    }
+    #board div {
+    float: left;
+    height: 101.5px;
+    width: 101px;
+    border-right: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+    text-align: center;
+    }
+    #board div span {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: bold;
+      font-size: 70px;
+      margin-top: 36px;
+      display: block;
+    }
+    .winner { background-color: lightgreen; }

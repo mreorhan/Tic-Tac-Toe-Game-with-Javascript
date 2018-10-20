@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>XOX Oyunu</title>
+      <link rel="stylesheet" type="text/css" href="https://semantic-ui.com/dist/semantic.css">
+      <link href="css/style.css" rel="stylesheet">
+  <style>
+  </style>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="./js/pcvshuman.js"></script>
+</head>
+<body>
+        <div class="ui two column stackable grid container">
+           <div class="column">
+              <div class="ui segment" style="text-align: center;">
+                    <div id="board">
+                            <div id="s00"></div>
+                            <div id="s10"></div>
+                            <div id="s20"></div>
+                            <div id="s01"></div>
+                            <div id="s11"></div>
+                            <div id="s21"></div>
+                            <div id="s02"></div>
+                            <div id="s12"></div>
+                            <div id="s22"></div>
+                          </div>
+              </div>
+           </div>
+           <div class="column">
+              <div class="ui segment">
+                 <div class="panel panel-default">
+                    <div class="panel-body">
+                       <div class="input-group">
+                          <span class="input-group-btn">
+                          <button class="ui button primary" type="button" onclick="newGame()">Oyunu Yenile</button>
+                          </span>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+           <div class="ui modal">
+            <i class="close icon"></i>
+            <div class="header description">
+            </div>
+            <div class="image content">
+              <h3>Skor Tablosu</h3><br/>
+              <p>Senin kazandığın: <span id="xwins">0</span><br/>
+                Bilgisayarın kazandığı: <span id="owins">0</span></p>
+            </div>
+            <div class="actions">
+              <button class="ui button" onclick="newGame()">Yeni Oyun</button>
+            </div>
+          </div>
+        </div>
+     </body>
+     
+     <script src="https://semantic-ui.com/dist/semantic.min.js"></script>
+</html>
