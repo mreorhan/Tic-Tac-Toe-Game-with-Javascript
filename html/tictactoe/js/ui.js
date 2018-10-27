@@ -144,29 +144,26 @@ var timeleft=0;
 let xTime=1000;
  function downloadTimer(msg){
     console.log(msg)
-    console.log(timeleft)
+    console.log("timeleft"+timeleft)
     console.log($('#example2').progress('increment'))
 	var xSet = setInterval(()=>{
     console.log("timeleft kalan"+timeleft)
       $('#example2').progress('increment');
       if(timeleft>=10){
-        clearInterval(xSet);
         $('#example2').progress('reset');
         timeleft=0;
         result = msg.value === "o" ? "x" : "o";
         endGame(result);
     }
     timeleft++;
-    },xTime);
+    },(xTime+=1200));
 }
 socket.on('make a move', function (msg) {
     downloadTimer(msg);
 	$('#example2')
-  .progress({
-    duration : 1000,
-    total    : 10,
-  })
-;
+    .progress({
+        total    : 10,
+    });
     setValue(msg.x, msg.y, msg.value);
 	
     if (msg.isWinningMove.status) {
@@ -250,7 +247,7 @@ var makeAMove = function (x, y) {
 var currentTurnStyle = function () {
     $("#playerX").toggleClass("current");
     $("#playerO").toggleClass("current");
-	timeleft = 0;
+    timeleft = 0;
     $('#example2').progress('reset');
 	
 };
