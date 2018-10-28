@@ -1,5 +1,5 @@
 //Socket.io Bağlantısı
-let socket = io('http://localhost:8181');
+let socket = io('https://safe-shelf-21617.herokuapp.com:8181');
 
 let oyuncuAdi = "Player";
 let oyuncuTipi;
