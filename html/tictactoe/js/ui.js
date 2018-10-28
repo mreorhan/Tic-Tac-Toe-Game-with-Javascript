@@ -1,5 +1,5 @@
 //Socket.io Bağlantısı
-let socket = io('https://safe-shelf-21617.herokuapp.com:8181');
+let socket = io('http://localhost:8181');
 
 let oyuncuAdi = "Player";
 let oyuncuTipi;
@@ -24,7 +24,7 @@ function init() {
     canMove = true;
     currentTurn = null;
     oyuncuTipi = null;
-
+	timeleft=null;
     $('#canvasOyunAlani').attr({width: canvas_genisligi, height: canvas_yuksekligi}).css({width: canvas_genisligi, height: canvas_yuksekligi});
 
     stage = new createjs.Stage("canvasOyunAlani");
@@ -91,7 +91,6 @@ let initGrid = function () {
 };
 
 let evtCellClicked = function (event) {
-    //return if there is an overlay panel
     if (overlayContainter != null || currentTurn !== oyuncuTipi || !canMove)
         return false;
 
