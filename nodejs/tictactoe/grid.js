@@ -1,3 +1,4 @@
+//Oyun değişken tanımlamaları
 let CELL_ROWS = 3, CELL_COLS = 3;
 let _playerX;
 let _playerO;
@@ -13,6 +14,7 @@ function Table(playerX, playerO) {
     _createNewGrid();
 };
 
+//Oyun alanını yarat
 function _createNewGrid() {
     for (let i = 0; i < CELL_ROWS; i++) {
         _grid.push([]);
@@ -43,7 +45,7 @@ function _isWinningMove(x, y, value) {
     return {status: result.length > 0, data: result};
 };
 
-//North-South check
+//Üst-alt kontrolü
 function _N_SCheck(x, y, value) {
     let pos = [
         {x: x, y: y},
@@ -74,7 +76,7 @@ function _N_SCheck(x, y, value) {
 
 };
 
-//East-West check
+//Sol-sağ kontrolü
 function _E_WCheck(x, y, value) {
     let pos = [
         {x: x, y: y},
@@ -105,7 +107,7 @@ function _E_WCheck(x, y, value) {
 
 };
 
-//NorthEast-SouthWest check
+//Sağ alt çapraz(diagonal) kontrolü
 function _NE_SWCheck(x, y, value) {
     let pos = [
         {x: x, y: y},
@@ -138,7 +140,7 @@ function _NE_SWCheck(x, y, value) {
 
 };
 
-//SouthEast-NorthWest check
+//Sol Alt Çapraz (diagonal) kontrolü
 function _SE_NWCheck(x, y, value) {
     let pos = [
         {x: x, y: y},
@@ -170,8 +172,7 @@ function _SE_NWCheck(x, y, value) {
     return {status: counter >=3, data: pos};
 
 };
-
-//Set cell target value, return 1 if it's winning move; return 0 if succeed; otherwise return -1
+//Hareketi algılama: 1 dönerse kazandı, 0 dönerse adım doğru, -1 dönerse adım hatalı
 Table.prototype.makeAMove = function (x, y) {
     let cell = _grid[y][x];
     if (cell.value == null) {
